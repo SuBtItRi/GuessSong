@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "cpush": "node scripts/commit-push.mjs",
+    "pub": "node scripts/publish-site.mjs",
     "prepare": "husky install",
     "preview": "vite preview"
   },
