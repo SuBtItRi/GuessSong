@@ -62,10 +62,8 @@ export const useLightGame = ({ setGameStatus }: IUseGameProps) => {
   };
 
   const checkIsCorrectAnswer = (skip?: boolean) => {
-    console.log(currentStage);
     // @ts-expect-error - это поле используется как произвольное хранилище в `location.state`
     state["currentStage"] = currentStage;
-    console.log({ selectedTrack, skip });
     if (!selectedTrack && skip) return;
 
     if (getTrackName(selectedTrack) === randomTrack.track) {

@@ -5,9 +5,8 @@
 Живой сайт: https://guess-song-subtitri.netlify.app/
 
 ## Ссылки
-- GitHub (заглушка): https://github.com/your-org/guesssong
-- Документация/ТЗ (заглушка): https://example.com/docs
-- Контакты (заглушка): https://t.me/your_channel
+
+- GitHub: https://github.com/SuBtItRi/GuessSong
 
 ## Запуск локально (микро-гайд)
 
@@ -40,3 +39,17 @@
 ## Примечание по коммитам
 
 Перед коммитом настроен `pre-commit` (husky): он прогоняет `yarn lint --fix` и `yarn build`, чтобы ловить проблемы раньше.
+
+## Автокоммит и пуш
+
+Чтобы одним шагом сделать `git add` → `git commit` → `git push` в `origin`:
+
+- `yarn cpush "имя коммита"`
+- `yarn cpush --all "имя коммита" ветка` (опционально: `--all` = `git add -A`)
+
+По умолчанию пушится в ветку `master`.
+
+Пример:
+```bash
+yarn cpush --all "chore: commit & push" dev
+```

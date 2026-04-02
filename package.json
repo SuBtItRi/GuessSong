@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "cpush": "node scripts/commit-push.mjs",
     "prepare": "husky install",
     "preview": "vite preview"
   },
