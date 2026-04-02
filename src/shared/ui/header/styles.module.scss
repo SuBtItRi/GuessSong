@@ -1,0 +1,102 @@
+// Header.module.scss
+
+$bg: #000000;
+$bg-nav: rgba(0, 0, 0, 0.45);
+$border: rgba(255, 255, 255, 0.06);
+$text: #e0e0e0;
+$text-hover: #ffffff;
+$highlight: #d0d8ff;
+
+.header {
+  position: sticky;
+  inset: 0 0 auto 0;
+  height: 70px;
+  z-index: 1000;
+  background: $bg;
+  border-bottom: 1px solid $border;
+  backdrop-filter: blur(10px);
+  overflow: hidden; // чтобы звёзды не вылезали
+}
+.container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: white;
+  text-decoration: none;
+  margin-right: 40px;
+
+  &:hover {
+    color: $highlight;
+  }
+}
+
+.navLink {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: $text;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $text-hover;
+  }
+}
+
+.highlight {
+  font-weight: 600;
+  color: $highlight;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.loginBtn {
+  padding: 8px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: $highlight;
+  text-decoration: none;
+  border: 1px solid rgba(208, 216, 255, 0.3);
+  border-radius: 8px;
+  transition: all 0.25s ease;
+
+  &:hover {
+    background: rgba(208, 216, 255, 0.12);
+    border-color: rgba(208, 216, 255, 0.6);
+    color: white;
+  }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  .left {
+    gap: 20px;
+  }
+  .logo {
+    margin-right: 20px;
+    font-size: 1.6rem;
+  }
+}

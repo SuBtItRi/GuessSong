@@ -1,0 +1,9 @@
+.container {
+    @include flex(center, center);
+    min-height: 90vh;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 80%;
+}

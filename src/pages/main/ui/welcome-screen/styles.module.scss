@@ -1,0 +1,135 @@
+$bg: #000000;
+$accent: #d0d8ff;
+$text: #e0e0e0;
+$scratch-opacity: 0.35;
+
+.main {
+  min-height: 100vh;
+  background: $bg;
+  color: $text;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.title {
+  font-size: clamp(5rem, 14vw, 16rem);
+  font-weight: 900;
+  letter-spacing: -4px;
+  margin: 0 0 1rem;
+  color: white;
+  text-shadow: 0 0 60px rgba(208, 216, 255, 0.25);
+  line-height: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+.subtitle {
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  color: #bbbbbb;
+  margin: 0 0 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+// Контейнер для планет
+.planetsContainer {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 600px; // подстраивай под себя
+  max-width: 1200px;
+  margin: 0 auto;
+  perspective: 1200px; // для лёгкого 3D-эффекта
+}
+
+// Каждая планета
+.planet {
+  position: absolute;
+  left: 50%;
+  width: var(--size);
+  height: var(--size);
+  transform: translate(-50%, -50%) rotate(var(--orbit-angle))
+    translate(var(--distance)) rotate(calc(-1 * var(--orbit-angle)));
+  animation: float 12s infinite ease-in-out;
+  animation-delay: var(--delay);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--orbit-angle))
+      translate(var(--distance)) rotate(calc(-1 * var(--orbit-angle)))
+      translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(var(--orbit-angle))
+      translate(var(--distance)) rotate(calc(-1 * var(--orbit-angle)))
+      translateY(-20px);
+  }
+}
+
+.planetInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(208, 216, 255, 0.15);
+}
+
+// Фото внутри планеты
+.planetImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8) contrast(1.15);
+}
+
+// Оверлей поцарапанности
+.scratchOverlay {
+  position: absolute;
+  inset: 0;
+  background: url("https://www.shutterstock.com/image-vector/black-white-grunge-distress-overlay-260nw-2458207137.jpg")
+    center/cover; // или свой scratch-текстур
+  mix-blend-mode: overlay;
+  opacity: $scratch-opacity;
+  pointer-events: none;
+}
+
+// Рваные края (самый важный эффект)
+.tornEdge {
+  position: absolute;
+  inset: -12px; // чуть больше радиуса
+  border-radius: 50%;
+  box-shadow: inset 0 0 30px 15px rgba(0, 0, 0, 0.9),
+    0 0 0 12px rgba(0, 0, 0, 0.85); // имитация рваного края
+  background: radial-gradient(circle at 30% 40%, transparent 20%, black 60%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+// Можно добавить лёгкое вращение планет
+.planet:nth-child(odd) {
+  animation: float 14s infinite ease-in-out reverse;
+}
+
+.planet:nth-child(3n) {
+  --size: 110px;
+}
+.planet:nth-child(4n) {
+  --size: 65px;
+}

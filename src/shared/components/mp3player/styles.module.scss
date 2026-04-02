@@ -1,0 +1,105 @@
+.mp3player {
+  @include flex(center, space-between);
+
+  button {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 100%;
+
+    > svg {
+      width: 100%;
+      height: 100%;
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .btns {
+    @include flex($gap: 20px);
+    position: relative;
+  }
+}
+
+.additionalBtn {
+  padding: 5%;
+}
+
+/* Поповер громкости */
+.volumeContainer {
+  position: relative;
+}
+
+.volumePopover {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  background: rgba(30, 30, 40, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  // rotate: -90deg;
+  transform: translateX(30px) translateY(30px);
+
+  /* Вертикальный слайдер */
+  input[type="range"] {
+    // -webkit-appearance: none;
+    // appearance: none;
+    // width: 100%;
+    // height: 100%;
+    // background: rgba(255, 255, 255, 0.15);
+    // border-radius: 4px;
+    // outline: none;
+    // cursor: pointer;
+    // margin: 10px;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    &::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    &::-webkit-slider-runnable-track {
+      // background: linear-gradient(to top, #8b5cf6, #3b82f6);
+      height: 100%;
+      border-radius: 15px;
+    }
+
+    &::-moz-range-track {
+      background: linear-gradient(to top, #8b5cf6, #3b82f6);
+      height: 100%;
+      border-radius: 4px;
+    }
+  }
+}

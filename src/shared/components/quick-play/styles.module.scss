@@ -1,0 +1,161 @@
+// Quick Play Section — glassmorphic card
+.quickPlay {
+  position: relative;
+  z-index: 3;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+}
+
+.quickPlayCard {
+  @include flex(center, center, $direction: column);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 1520px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 0 30px rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.quickPlayTitle {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 0 32px;
+  color: white;
+  text-shadow: 0 0 20px rgba(208, 216, 255, 0.3);
+}
+
+.formGroup {
+  text-align: left;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #d0d8ff;
+  margin-bottom: 8px;
+}
+
+.labelIcon {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #00f0ff;
+  text-shadow: 0 0 10px #00f0ff80;
+}
+
+.select {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  background: rgba(20, 20, 60, 0.4);
+  border: 1px solid rgba(208, 216, 255, 0.25);
+  border-radius: 12px;
+  color: white;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:focus {
+    outline: none;
+    border-color: #00f0ff;
+    box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.2);
+  }
+}
+
+.hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.timeOptions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.timeBtn {
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &.active,
+  &:hover {
+    background: rgba(0, 240, 255, 0.15);
+    border-color: #00f0ff;
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+  }
+}
+
+.startButton {
+  @include flex();
+  margin-top: 32px;
+  padding: 16px 48px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #00f0ff, #ff00aa);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.5);
+  transition: all 0.4s;
+
+  &:hover {
+    box-shadow: 0 0 80px rgba(255, 0, 170, 0.7);
+  }
+
+  .icon {
+    @include flex();
+    margin-left: 8px;
+  }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .quickPlayCard {
+    padding: 28px 20px;
+  }
+
+  .quickPlayTitle {
+    font-size: 1.8rem;
+  }
+}
+
+.upBlock {
+  @include flex(start, center, 20px);
+  margin-bottom: 28px;
+  width: 100%;
+  > div {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    > div {
+      max-width: unset;
+    }
+  }
+}
+
+.bottomBlock {
+  width: 100%;
+  max-width: 70%;
+}

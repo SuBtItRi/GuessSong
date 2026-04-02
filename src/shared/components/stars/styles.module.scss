@@ -1,0 +1,54 @@
+$star-color: rgba(255, 255, 255, 0.7);
+
+.starsContainer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: $star-color;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.4);
+  opacity: 0.6;
+  animation: drift 18s infinite linear;
+  animation-delay: var(--delay, 0s);
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  transform: translate(-50%, -50%);
+
+  // Разные размеры и мерцание для реализма
+  &:nth-child(3n) {
+    width: 1.5px;
+    height: 1.5px;
+    box-shadow: 0 0 8px 1.5px rgba(255, 255, 255, 0.5);
+    opacity: 0.8;
+  }
+
+  &:nth-child(4n) {
+    width: 2.5px;
+    height: 2.5px;
+    opacity: 0.4;
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(-50%, -50%) translateX(0) translateY(0);
+  }
+  25% {
+    transform: translate(-50%, -50%) translateX(12px) translateY(8px);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateX(-10px) translateY(-6px);
+  }
+  75% {
+    transform: translate(-50%, -50%) translateX(8px) translateY(10px);
+  }
+  100% {
+    transform: translate(-50%, -50%) translateX(0) translateY(0);
+  }
+}

@@ -1,0 +1,167 @@
+// Footer.module.scss — в стиле хедера: тёмный космос, звёзды, минимализм
+
+$bg: #000000;
+$border: rgba(255, 255, 255, 0.06);
+$text: #cccccc;
+$text-light: #999999;
+$highlight: #d0d8ff;
+$star-color: rgba(255, 255, 255, 0.65);
+
+.footer {
+  position: relative;
+  bottom: 0;
+  background: $bg;
+  color: $text;
+  padding: 80px 0 40px;
+  border-top: 1px solid $border;
+  overflow: hidden;
+}
+
+.starsContainer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 1.8px;
+  height: 1.8px;
+  background: $star-color;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.35);
+  opacity: 0.55;
+  animation: drift 20s infinite linear, twinkle 4s infinite ease-in-out;
+  animation-delay: var(--delay, 0s);
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  transform: translate(-50%, -50%);
+
+  &:nth-child(odd) {
+    width: 2.2px;
+    height: 2.2px;
+    opacity: 0.7;
+  }
+}
+
+@keyframes drift {
+  0%   { transform: translate(-50%, -50%) translateX(0) translateY(0); }
+  25%  { transform: translate(-50%, -50%) translateX(10px) translateY(6px); }
+  50%  { transform: translate(-50%, -50%) translateX(-8px) translateY(-5px); }
+  75%  { transform: translate(-50%, -50%) translateX(7px) translateY(9px); }
+  100% { transform: translate(-50%, -50%) translateX(0) translateY(0); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 0.85; }
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 48px;
+}
+
+.section {
+  h3.logo {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    margin: 0 0 12px;
+    letter-spacing: -0.5px;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $highlight;
+    margin: 0 0 16px;
+  }
+
+  p.tagline {
+    font-size: 1.05rem;
+    color: $text-light;
+    margin: 0;
+  }
+
+  p.bio {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: $text-light;
+    margin: 0;
+  }
+}
+
+.contacts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+
+  li {
+    margin-bottom: 8px;
+    a {
+      color: $text;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: $highlight;
+      }
+    }
+  }
+}
+
+.bottom {
+  grid-column: 1 / -1;
+  margin-top: 60px;
+  padding-top: 32px;
+  border-top: 1px solid $border;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.9rem;
+  color: $text-light;
+  text-align: center;
+
+  .links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    a {
+      color: $text;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: white;
+      }
+    }
+  }
+
+  .copyright {
+    opacity: 0.7;
+  }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .container {
+    gap: 40px;
+    padding: 0 16px;
+  }
+
+  .section {
+    text-align: center;
+  }
+}

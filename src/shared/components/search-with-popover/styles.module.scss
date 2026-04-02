@@ -1,0 +1,74 @@
+.searchContainer {
+  position: relative;
+  width: 100%;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 16px 48px 16px 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: white;
+  font-size: 1.1rem;
+  outline: none;
+  transition: all 0.3s;
+
+  &::placeholder {
+    color: #888;
+  }
+
+  &:focus {
+    border-color: #00f0ff;
+    box-shadow: 0 0 0 3px rgba(0, 240, 255, 0.15);
+  }
+}
+
+.clearBtn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.popover {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  margin-bottom: 8px;
+  background: rgba(10, 10, 30, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  max-height: 320px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.popoverItem {
+  padding: 14px 20px;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(0, 240, 255, 0.12);
+    color: white;
+  }
+}
